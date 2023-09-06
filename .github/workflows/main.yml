@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/50f6daddf11475a26ed301e3ad277f51
+          gist_title: Práctica-4 Contador Binario 4550-MikroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/4550/contador_binario.c
+          file_encoding: WINDOWS-1252
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/c5820e69bc80b9162952a34c8b589d2c
+          gist_title: Práctica-4-Contador Binario 45K50-MicroC.c
+          gist_description: Prácticas MikroC Pro for PIC
+          github_file: Proyecto/45K50/contador_binario.c
+          file_encoding: WINDOWS-1252
